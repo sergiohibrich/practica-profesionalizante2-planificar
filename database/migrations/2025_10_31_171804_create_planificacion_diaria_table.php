@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('planificacion_diaria', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->date('fecha_estimada');
+            $table->date('fecha_desarrollada');
+            $table->date('fecha_presentacion');
+            $table->longText('contenidos_especificos');
+            $table->longText('actividades');
+            $table->longText('tareas');
+            $table->string('tipo_planificacion', 45);
+
+            $table->unsignedBigInteger('persona_cargo_cursada_id');
+            $table->foreign('persona_cargo_cursada_id') ->references('id') ->on('persona_cargo_cursada');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('planificacion_diaria');
+    }
+};
