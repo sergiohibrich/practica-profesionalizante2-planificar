@@ -14,11 +14,11 @@ class PersonaCargoSeeder extends Seeder
     public function run(): void
     {
         DB::table('persona_cargos')->insert([
-            ['persona_id'=>1, 'cargo_id'=>1, 'created_at' => now(), 'updated_at' => now()],
-            ['persona_id'=>2, 'cargo_id'=>10, 'created_at' => now(), 'updated_at' => now()],
-            ['persona_id'=>3, 'cargo_id'=>19, 'created_at' => now(), 'updated_at' => now()],
-            ['persona_id'=>4, 'cargo_id'=>28, 'created_at' => now(), 'updated_at' => now()],
-            ['persona_id'=>5, 'cargo_id'=>31, 'created_at' => now(), 'updated_at' => now()],
+            ['persona_id' => 1, 'cargo_id' => 1, 'sit_revista_id' => 1, 'created_at' => now(), 'updated_at' => now()],
+            ['persona_id' => 2, 'cargo_id' => 4, 'sit_revista_id' => 2, 'created_at' => now(), 'updated_at' => now()],
+            ['persona_id' => 3, 'cargo_id' => 7, 'sit_revista_id' => 3, 'created_at' => now(), 'updated_at' => now()],
+            ['persona_id' => 4, 'cargo_id' => 10, 'sit_revista_id' => 4, 'created_at' => now(), 'updated_at' => now()],
+            ['persona_id' => 5, 'cargo_id' => 11, 'sit_revista_id' => 5, 'created_at' => now(), 'updated_at' => now()],
             
 
         ]);
