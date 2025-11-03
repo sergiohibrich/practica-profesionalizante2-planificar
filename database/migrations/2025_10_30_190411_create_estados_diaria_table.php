@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('estados_diaria', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('estado',45);
             $table->date('fecha');
-
+            $table->timestamps();
             $table->unsignedBigInteger('planificacion_diaria_id');
             $table->foreign('planificacion_diaria_id') ->references('id') ->on('planificacion_diaria');
         });
