@@ -19,21 +19,17 @@ return new class extends Migration
             $table->string('criterios');
             $table->string('bibliografia');
             $table->string('diagnostico');
-            $table->unsignedBigInteger('areas_planificacion_id');
-            $table->unsignedBigInteger('persona_cargo_cursada_id');
+            $table->unsignedBigInteger('areas_id');
+            $table->unsignedBigInteger('persona_cargo_cursado_id');
             $table->string('tipo_planificacion');
-            $table->unsignedBigInteger('estado_anual_id');
             $table->timestamps();
 
             // Claves foráneas
-            $table->foreign('areas_planificacion_id')
-                  ->references('id')->on('areas_planificacion')
+            $table->foreign('areas_id')
+                  ->references('id')->on('areas')
                   ->onDelete('cascade');
-            $table->foreign('persona_cargo_cursada_id')
+            $table->foreign('persona_cargo_cursado_id')
                   ->references('id')->on('persona_cargo_cursado')
-                  ->onDelete('cascade');
-            $table->foreign('estado_anual_id')
-                  ->references('id')->on('estados_anual')
                   ->onDelete('cascade');
         });
     }

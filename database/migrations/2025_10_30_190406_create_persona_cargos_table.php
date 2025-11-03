@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('persona_cargos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('persona_id')->constrained()->onDelete('cascade');
-            $table->foreignId('cargo_id')->constrained()->onDelete('cascade');
-            $table->foreignId('sit_revista_id')->constrained()->onDelete('cascade');
+            $table->foreignId('persona_id')->constrained('personas')->onDelete('cascade');
+            $table->foreignId('cargo_id')->constrained('cargos')->onDelete('cascade');
+            $table->foreignId('sit_revista_id')->constrained('sit_revista')->onDelete('cascade');
             $table->timestamps();
         });
     }

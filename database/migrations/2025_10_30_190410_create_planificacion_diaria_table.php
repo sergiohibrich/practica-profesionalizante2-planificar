@@ -20,10 +20,8 @@ return new class extends Migration
             $table->longText('contenidos_especificos');
             $table->longText('actividades');
             $table->longText('tareas');
+            $table->foreignId('persona_cargo_cursado_id')->references('id')->on('persona_cargo_cursado');
             $table->string('tipo_planificacion', 45);
-
-            $table->unsignedBigInteger('persona_cargo_cursada_id');
-            $table->foreign('persona_cargo_cursada_id') ->references('id') ->on('persona_cargo_cursada');
         });
     }
 

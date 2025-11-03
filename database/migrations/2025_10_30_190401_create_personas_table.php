@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('apellido');
-            $table->bigInteger('dni')->unique()->unsigned();
+            $table->string('dni')->unique();
             $table->string('email')->unique();
             $table->string('telefono');
             $table->string('direccion');
