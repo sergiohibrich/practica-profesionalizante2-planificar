@@ -21,7 +21,7 @@ return new class extends Migration
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
         });
-        
+
     }
 
     /**
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('estados_anual');
     }
 };
