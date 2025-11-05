@@ -15,12 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('estado',45);
             $table->date('fecha');
-            $table->timestamps();
 
             $table->foreignId('planificacion_anual_id')
                   ->constrained('planificacion_anual')
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
+
+            $table->timestamps();
         });
 
     }

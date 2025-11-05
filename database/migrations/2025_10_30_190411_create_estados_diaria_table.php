@@ -15,9 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('estado',45);
             $table->date('fecha');
-            $table->timestamps();
             $table->unsignedBigInteger('planificacion_diaria_id');
+
             $table->foreign('planificacion_diaria_id') ->references('id') ->on('planificacion_diaria');
+
+            $table->timestamps();
+
         });
     }
 
