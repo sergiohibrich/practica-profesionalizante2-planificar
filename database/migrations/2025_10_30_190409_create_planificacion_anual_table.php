@@ -13,27 +13,23 @@ return new class extends Migration
     {
         Schema::create('planificacion_anual', function (Blueprint $table) {
             $table->id();
-            $table->string('fecha_presentacion');
-            $table->string('aprendizajes_esperados');
-            $table->string('saberes');
-            $table->string('criterios');
-            $table->string('bibliografia');
-            $table->string('diagnostico');
-            $table->unsignedBigInteger('areas_planificacion_id');
-            $table->unsignedBigInteger('persona_cargo_cursada_id');
+            $table->longText('fecha_presentacion');
+            $table->longText('aprendizajes_esperados');
+            $table->longText('saberes');
+            $table->longText('criterios');
+            $table->longText('bibliografia');
+            $table->longText('diagnostico');
+            $table->unsignedBigInteger('areas_id');
+            $table->unsignedBigInteger('persona_cargo_cursado_id');
             $table->string('tipo_planificacion');
-            $table->unsignedBigInteger('estado_anual_id');
             $table->timestamps();
 
             // Claves foráneas
-            $table->foreign('areas_planificacion_id')
-                  ->references('id')->on('areas_planificacion')
+            $table->foreign('areas_id')
+                  ->references('id')->on('areas')
                   ->onDelete('cascade');
-            $table->foreign('persona_cargo_cursada_id')
+            $table->foreign('persona_cargo_cursado_id')
                   ->references('id')->on('persona_cargo_cursado')
-                  ->onDelete('cascade');
-            $table->foreign('estado_anual_id')
-                  ->references('id')->on('estados_anual')
                   ->onDelete('cascade');
         });
     }

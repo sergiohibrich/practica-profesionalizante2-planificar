@@ -33,6 +33,37 @@ class EstadosAual extends Seeder
                 'estado' => 'Cancelado',
                 'fecha' => '2024-01-01',
                 'planificacion_anual_id' => null
+            ],
+            [
+                'estado' => 'Revisado',
+                'fecha' => '2024-01-01',
+                'planificacion_anual_id' => null
+            ],
+            [
+                'estado' => 'Aprobado',
+                'fecha' => '2024-01-01',
+                'planificacion_anual_id' => null
+            ],
+            [
+                'estado' => 'Archivado',
+                'fecha' => '2024-01-01',
+                'planificacion_anual_id' => null
+            ],
+            [
+                'estado' => 'Rechazado',
+                'fecha' => '2024-01-01',
+                'planificacion_anual_id' => null
+
+            ],
+            [
+                'estado' => 'En Espera',
+                'fecha' => '2024-01-01',
+                'planificacion_anual_id' => null
+            ],
+            [
+                'estado' => 'Finalizado',
+                'fecha' => '2024-01-01',
+                'planificacion_anual_id' => null
             ]
         ]);
     }

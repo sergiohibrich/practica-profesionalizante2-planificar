@@ -11,15 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('estados_diaria', function (Blueprint $table) {
+        Schema::create('estados_anual',function (Blueprint $table){
             $table->id();
-            $table->timestamps();
             $table->string('estado',45);
             $table->date('fecha');
 
-            $table->unsignedBigInteger('planificacion_diaria_id');
-            $table->foreign('planificacion_diaria_id') ->references('id') ->on('planificacion_diaria');
+            $table->foreignId('planificacion_anual_id')
+                  ->constrained('planificacion_anual')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+
+            $table->timestamps();
         });
+
     }
 
     /**
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('estados_diaria');
+        Schema::dropIfExists('estados_anual');
     }
 };

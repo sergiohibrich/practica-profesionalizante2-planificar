@@ -13,17 +13,15 @@ return new class extends Migration
     {
         Schema::create('planificacion_diaria', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->date('fecha_estimada');
             $table->date('fecha_desarrollada');
             $table->date('fecha_presentacion');
             $table->longText('contenidos_especificos');
             $table->longText('actividades');
             $table->longText('tareas');
+            $table->foreignId('persona_cargo_cursado_id')->references('id')->on('persona_cargo_cursado');
             $table->string('tipo_planificacion', 45);
-
-            $table->unsignedBigInteger('persona_cargo_cursada_id');
-            $table->foreign('persona_cargo_cursada_id') ->references('id') ->on('persona_cargo_cursada');
+            $table->timestamps();
         });
     }
 
