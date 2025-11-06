@@ -10,6 +10,6 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/personas',[PersonasController::class, 'index']);
 Route::get('/personas/{id}',[PersonasController::class, 'show']);
-Route::post('/personas', [PersonaController::class, 'store']);
-Route::put('/personas/{id}', [PersonaController::class, 'update']);
-Route::delete('/personas/{id}', [PersonaController::class, 'destroy']);
+Route::post('/personas', [PersonasController::class, 'store']);
+Route::put('/personas/{id}', [PersonasController::class, 'update']);
+Route::delete('/personas/{id}', [PersonasController::class, 'destroy']);
