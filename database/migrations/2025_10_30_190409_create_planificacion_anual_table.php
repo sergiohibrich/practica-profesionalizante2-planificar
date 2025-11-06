@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('planificacion_anual', function (Blueprint $table) {
             $table->id();
-            $table->longText('fecha_presentacion');
+            $table->date('fecha_presentacion');
             $table->longText('aprendizajes_esperados');
             $table->longText('saberes');
             $table->longText('criterios');
