@@ -32,7 +32,7 @@ class PersonasController extends Controller
             'apellidos'=> $request['apellidos'],
             'nombres'=> $request['nombres'],
             'dni' => $request['dni'],
-            '`e-mail`' => $request['e-mail'],
+            'e-mail' => $request['e-mail'],
             'telefono' => $request['telefono'],
             'direccion' => $request['direccion'],
             'fecha_nacimiento' => $request['fecha_nacimiento']
@@ -65,7 +65,7 @@ class PersonasController extends Controller
         'apellidos' => $request['apellidos'],
         'nombres' => $request['nombres'],
         'dni' => $request['dni'],
-        '`e-mail`' => $request['e-mail'],
+        'e-mail' => $request['e-mail'],
         'telefono' => $request['telefono'],
         'direccion' => $request['direccion'],
         'fecha_nacimiento' => $request['fecha_nacimiento']
