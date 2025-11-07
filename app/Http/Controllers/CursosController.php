@@ -34,7 +34,7 @@ class CursosController extends Controller
             'seccion' => $request['seccion'],
             'turno' => $request['turno']
         ]);
-        return response()->json(['message' => 'Curso creado exitosamente']);
+        return response()->json(['message' => 'Curso fue creado exitosamente']);
     }
 
     /**
