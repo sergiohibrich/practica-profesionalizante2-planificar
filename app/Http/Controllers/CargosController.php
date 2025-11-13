@@ -28,7 +28,10 @@ class CargosController extends Controller
      */
     public function store(Request $request)
     {
-        
+        DB::table('cargos')->insert([
+            'cargo' => $request['cargo']
+        ]);
+        return response()->json(['message'=>'Cargo se agregó con éxito ']);
     }
 
     /**
