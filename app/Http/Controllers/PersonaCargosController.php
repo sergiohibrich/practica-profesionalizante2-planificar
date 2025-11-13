@@ -12,6 +12,11 @@ class PersonaCargosController extends Controller
      */
     public function index()
     {
+        return DB::table('persona_cargos')->get();
+    }
+    
+    public function cagosPersona()
+    {
       $registros = DB::table('persona_cargos')
             ->join('personas', 'persona_cargos.personas_id', '=', 'personas.id')
             ->join('cargos', 'persona_cargos.cargos_id', '=', 'cargos.id')
