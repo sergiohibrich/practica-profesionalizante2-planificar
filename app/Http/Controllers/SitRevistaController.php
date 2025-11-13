@@ -39,7 +39,7 @@ class SitRevistaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return DB::table('sit_revista')->where('id',"=", $id)->get();
     }
 
     /**
