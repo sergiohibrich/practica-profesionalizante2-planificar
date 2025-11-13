@@ -9,3 +9,21 @@ Route::get('persona-cargo-cursado/{id}', [PersonaCargoCursadoController::class, 
 Route::put('persona-cargo-cursado/{id}', [PersonaCargoCursadoController::class, 'update']);
 Route::delete('persona-cargo-cursado/{id}', [PersonaCargoCursadoController::class, 'destroy']);
 Route::post('persona-cargo-cursado', [PersonaCargoCursadoController::class, 'store']);
+use App\Http\Controllers\PersonasController;
+use App\Http\Controllers\CursosController;
+
+
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:sanctum');
+
+Route::get('/personas',[PersonasController::class, 'index']);
+Route::get('/personas/{id}',[PersonasController::class, 'show']);
+Route::post('/personas', [PersonasController::class, 'store']);
+Route::put('/personas/{id}', [PersonasController::class, 'update']);
+Route::delete('/personas/{id}', [PersonasController::class, 'destroy']);
+Route::get('/cursos', [CursosController::class,'index']);
+Route::get('/cursos/{id}', [CursosController::class,'show']);
+Route::post('/cursos', [CursosController::class,'store']);
+Route::put('/cursos/{id}', [CursosController::class,'update']);
+Route::delete('/cursos/{id}', [CursosController::class,'destroy']);
