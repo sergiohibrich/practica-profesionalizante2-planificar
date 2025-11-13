@@ -10,6 +10,13 @@ Route::get('cursados/{id}', [CursadosController::class, 'show']);
 Route::put('cursados/{id}', [CursadosController::class, 'update']);
 Route::delete('cursados/{id}', [CursadosController::class, 'destroy']);
 Route::post('cursados', [CursadosController::class, 'store']);
+use App\Http\Controllers\PersonaCargoCursadoController;
+
+Route::get('persona-cargo-cursado', [PersonaCargoCursadoController::class, 'index']);
+Route::get('persona-cargo-cursado/{id}', [PersonaCargoCursadoController::class, 'show']);
+Route::put('persona-cargo-cursado/{id}', [PersonaCargoCursadoController::class, 'update']);
+Route::delete('persona-cargo-cursado/{id}', [PersonaCargoCursadoController::class, 'destroy']);
+Route::post('persona-cargo-cursado', [PersonaCargoCursadoController::class, 'store']);
 use App\Http\Controllers\PersonasController;
 use App\Http\Controllers\CursosController;
 
