@@ -53,7 +53,7 @@ class PersonaCargosController extends Controller
             'updated_at' => now(),
         ]);
 
-        return response()->json(['message' => 'Registro creado correctamente'], 201);
+        return response()->json(['message' => 'Registro creado correctamente']);
     }
 
     /**
@@ -61,7 +61,30 @@ class PersonaCargosController extends Controller
      */
     public function show(string $id)
     {
-        
+        $registro = DB::table('persona_cargos')
+            ->join('personas', 'persona_cargos.personas_id', '=', 'personas.id')
+            ->join('cargos', 'persona_cargos.cargos_id', '=', 'cargos.id')
+            ->join('sit_revista', 'persona_cargos.sit_revista_id', '=', 'sit_revista.id')
+            ->select(
+                'persona_cargos.id',
+                'personas.apellidos',
+                'personas.nombres',
+                'personas.dni',
+                'personas.e-mail',
+                'cargos.cargo',
+                'sit_revista.revista',
+                'persona_cargos.created_at',
+                'persona_cargos.updated_at'
+            )
+            ->where('persona_cargos.id', $id)
+            ->first();
+
+        if (!$registro) {
+            return response()->json(['error' => 'Registro no encontrado']);
+        }
+
+        return response()->json($registro);
+
     }
 
     /**
