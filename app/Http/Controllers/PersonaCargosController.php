@@ -100,7 +100,20 @@ class PersonaCargosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $actualizado = DB::table('persona_cargos')->where('id', $id)->update
+        ([
+            'personas_id' => $request->input('personas_id'),
+            'cargos_id' => $request->input('cargos_id'),
+            'sit_revista_id' => $request->input('sit_revista_id'),
+            'updated_at' => now(),
+        ]);
+
+        if (!$actualizado) {
+            return response()->json(['error' => 'Registro no encontrado o sin cambios']);
+        }
+
+        return response()->json(['message' => 'Registro actualizado correctamente']);
+
     }
 
     /**
@@ -108,6 +121,6 @@ class PersonaCargosController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        
     }
 }
