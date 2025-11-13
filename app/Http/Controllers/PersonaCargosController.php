@@ -12,7 +12,24 @@ class PersonaCargosController extends Controller
      */
     public function index()
     {
-       return DB::table('persona_cargos')->get();
+      $registros = DB::table('persona_cargos')
+            ->join('personas', 'persona_cargos.personas_id', '=', 'personas.id')
+            ->join('cargos', 'persona_cargos.cargos_id', '=', 'cargos.id')
+            ->join('sit_revista', 'persona_cargos.sit_revista_id', '=', 'sit_revista.id')
+            ->select(
+                'persona_cargos.id',
+                'personas.apellidos',
+                'personas.nombres',
+                'personas.dni',
+                'personas.e-mail',
+                'cargos.cargo',
+                'sit_revista.revista',
+                'persona_cargos.created_at',
+                'persona_cargos.updated_at'
+            )
+            ->get();
+
+        return response()->json($registros);
     }
 
     /**
