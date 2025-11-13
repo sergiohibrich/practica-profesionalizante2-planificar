@@ -28,7 +28,7 @@ class PersonaCargosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
     }
 
     /**
@@ -36,7 +36,7 @@ class PersonaCargosController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return DB::table('persona_cargos')->where('id','=',$id)->get();
     }
 
     /**
