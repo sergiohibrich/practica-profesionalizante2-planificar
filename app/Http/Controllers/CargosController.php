@@ -65,6 +65,8 @@ class CargosController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+         DB::table('cargos')->where('id', '=', $id)->delete();
+
+    return response()->json(['mensaje' => 'cargo eliminado con éxito']);
     }
 }
