@@ -39,7 +39,7 @@ class CargosController extends Controller
      */
     public function show(string $id)
     {
-        
+        return DB::table('cargos')->where('id','=', $id)->get();
     }
 
     /**
