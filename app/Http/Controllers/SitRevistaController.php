@@ -28,7 +28,10 @@ class SitRevistaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::table('sit_revista')->insert([
+            'revista' => $request['revista'],
+        ]);
+        return response()->json(['message' => 'revista fue creada con éxito ']);
     }
 
     /**
