@@ -45,7 +45,15 @@ class PersonaCargosController extends Controller
      */
     public function store(Request $request)
     {
-       
+       DB::table('persona_cargos')->insert([
+            'personas_id' => $request->input('personas_id'),
+            'cargos_id' => $request->input('cargos_id'),
+            'sit_revista_id' => $request->input('sit_revista_id'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return response()->json(['message' => 'Registro creado correctamente'], 201);
     }
 
     /**
@@ -53,7 +61,7 @@ class PersonaCargosController extends Controller
      */
     public function show(string $id)
     {
-        return DB::table('persona_cargos')->where('id','=',$id)->get();
+        
     }
 
     /**
