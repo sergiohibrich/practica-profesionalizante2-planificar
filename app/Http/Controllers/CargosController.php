@@ -55,7 +55,9 @@ class CargosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        
+        DB::table('cargos')->where('id','=', $id)->update([
+                    'cargo' => $request['cargo'], 
+                ]);
     }
 
     /**
