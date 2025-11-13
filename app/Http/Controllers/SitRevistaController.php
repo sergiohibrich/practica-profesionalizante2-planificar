@@ -55,7 +55,10 @@ class SitRevistaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::table('sit_revista')->where('id',"=", $id)->update([
+            'revista' => $request['revista'],
+        ]);
+        return response()->json(['message' => 'revista actualizada con éxito']);
     }
 
     /**
@@ -63,6 +66,6 @@ class SitRevistaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        
     }
 }
