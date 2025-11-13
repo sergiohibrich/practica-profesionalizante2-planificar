@@ -121,6 +121,13 @@ class PersonaCargosController extends Controller
      */
     public function destroy(string $id)
     {
-        
+        $eliminado = DB::table('persona_cargos')->where('id', $id)->delete();
+
+        if (!$eliminado) {
+            return response()->json(['error' => 'Registro no encontrado']);
+        }
+
+        return response()->json(['message' => 'Registro eliminado correctamente']);
+
     }
 }
