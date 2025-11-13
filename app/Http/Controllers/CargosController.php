@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\support\Facades\DB;
 
 class CargosController extends Controller
 {
@@ -11,7 +12,7 @@ class CargosController extends Controller
      */
     public function index()
     {
-        //
+        return DB::table('cargos')->get();
     }
 
     /**
@@ -27,7 +28,7 @@ class CargosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -35,7 +36,7 @@ class CargosController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
     }
 
     /**
@@ -51,7 +52,7 @@ class CargosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
     }
 
     /**
