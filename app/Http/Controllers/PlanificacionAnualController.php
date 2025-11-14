@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -10,17 +11,24 @@ class PlanificacionAnualController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): JsonResponse
     {
-        return DB::table('planificacion_anual')->get();
+        $planificacion = DB::table('planificacion_anual')->get();
+
+        if (!$planificacion) {
+            return response()->json([
+                'Mensaje' => 'Planificaciones no Encontradas'
+            ], 404);
+        }
+        return response()->json($planificacion);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
-        return DB::table('planificacion_anual')->insert([
+        $planificacion = DB::table('planificacion_anual')->insert([
             'fecha_presentacion'=>$request['fecha_presentacion'],
             'aprendizajes_esperados'=>$request['aprendizajes_esperados'],
             'saberes'=>$request['saberes'],
@@ -33,12 +41,18 @@ class PlanificacionAnualController extends Controller
             'created_at'=>now(),
             'updated_at'=>now()
         ]);
+            if (!$planificacion) {
+            return response()->json([
+                'Mensaje' => 'Planificaciones no Encontradas'
+            ], 404);
+        }
+        return response()->json(['Mensaje' => 'Agregado Correctamente']);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id): JsonResponse
     {
         $planificacion = DB::table('planificacion_anual')
         ->where('id', $id)
@@ -56,7 +70,7 @@ class PlanificacionAnualController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id): JsonResponse
     {
         $planificacion = DB::table('planificacion_anual')->where('id','=',$id)->update([
             'fecha_presentacion'=>$request['fecha_presentacion'],
@@ -70,12 +84,18 @@ class PlanificacionAnualController extends Controller
             'tipo_planificacion'=>$request['tipo_planificacion'],
             'updated_at'=>now(),
         ]);
+        if (!$planificacion) {
+            return response()->json([
+                'Mensaje' => 'Planificaciones no Encontradas'
+            ], 404);
+        }
+        return response()->json(['Mensaje' => 'Actualizado correctamente']);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id): JsonResponse
     {
         $planificacion = DB::table('planificacion_anual') ->where('id','=',$id)->delete();
         if (!$planificacion){
