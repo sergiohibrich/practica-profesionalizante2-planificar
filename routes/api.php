@@ -39,6 +39,7 @@ Route::delete('/cursos/{id}', [CursosController::class,'destroy']);
 use App\Http\Controllers\CargosController;
 
 Route::get('/sit_revista', [CargosController::class, 'index']);
-Route::get('/cargos/{id}', [CargosController::class, 'show']);
-Route::post('/cargos', [CargosController::class, 'store']);
-Route::put('/cargos/{id}', [CargosController::class, 'update']);
+Route::get('/sit_revista/{id}', [CargosController::class, 'show']);
+Route::post('/sit_revista', [CargosController::class, 'store']);
+Route::put('/sit_revista/{id}', [CargosController::class, 'update']);
+Route::delete('/sit_revista/{id}', [CargosController::class, 'destroy']);
