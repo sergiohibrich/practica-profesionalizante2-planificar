@@ -41,4 +41,4 @@ use App\Http\Controllers\CargosController;
 Route::get('/sit_revista', [CargosController::class, 'index']);
 Route::get('/cargos/{id}', [CargosController::class, 'show']);
 Route::post('/cargos', [CargosController::class, 'store']);
-
+Route::put('/cargos/{id}', [CargosController::class, 'update']);
