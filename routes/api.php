@@ -39,3 +39,4 @@ Route::delete('/cursos/{id}', [CursosController::class,'destroy']);
 use App\Http\Controllers\CargosController;
 
 Route::get('/cargos', [CargosController::class, 'index']);
+Route::get('/cargos/{id}', [CargosController::class, 'show']);
