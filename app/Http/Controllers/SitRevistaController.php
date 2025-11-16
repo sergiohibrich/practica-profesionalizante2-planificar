@@ -69,4 +69,5 @@ class SitRevistaController extends Controller
         DB::table('sit_revista')->where('id',"=", $id)->delete();
         return response()->json(['message' => 'revista eliminada con exito']);
     }
+    
 }
