@@ -20,3 +20,12 @@ Route::get('/cursos/{id}', [CursosController::class,'show']);
 Route::post('/cursos', [CursosController::class,'store']);
 Route::put('/cursos/{id}', [CursosController::class,'update']);
 Route::delete('/cursos/{id}', [CursosController::class,'destroy']);
+
+use App\Http\Controllers\PersonaCargosController;
+
+
+Route::get('persona_cargos', [PersonaCargosController::class, 'index']);
+Route::get('persona_cargos/{id}', [PersonaCargosController::class, 'show']);
+Route::put('persona_cargos/{id}', [PersonaCargosController::class, 'update']);
+Route::delete('persona_cargos/{id}', [PersonaCargosController::class, 'destroy']);
+Route::post('persona_cargos', [PersonaCargosController::class, 'store']);
