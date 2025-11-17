@@ -2,21 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CursadosController;
-
-
-Route::get('cursados', [CursadosController::class, 'index']);
-Route::get('cursados/{id}', [CursadosController::class, 'show']);
-Route::put('cursados/{id}', [CursadosController::class, 'update']);
-Route::delete('cursados/{id}', [CursadosController::class, 'destroy']);
-Route::post('cursados', [CursadosController::class, 'store']);
-use App\Http\Controllers\PersonaCargoCursadoController;
-
-Route::get('persona-cargo-cursado', [PersonaCargoCursadoController::class, 'index']);
-Route::get('persona-cargo-cursado/{id}', [PersonaCargoCursadoController::class, 'show']);
-Route::put('persona-cargo-cursado/{id}', [PersonaCargoCursadoController::class, 'update']);
-Route::delete('persona-cargo-cursado/{id}', [PersonaCargoCursadoController::class, 'destroy']);
-Route::post('persona-cargo-cursado', [PersonaCargoCursadoController::class, 'store']);
 use App\Http\Controllers\PersonasController;
 use App\Http\Controllers\CursosController;
 
@@ -36,10 +21,3 @@ Route::post('/cursos', [CursosController::class,'store']);
 Route::put('/cursos/{id}', [CursosController::class,'update']);
 Route::delete('/cursos/{id}', [CursosController::class,'destroy']);
 
-use App\Http\Controllers\SitRevistaController;
-
-Route::get('/sit_revista', [SitRevistaController::class, 'index']);
-Route::get('/sit_revista/{id}', [SitRevistaController::class, 'show']);
-Route::post('/sit_revista', [SitRevistaController::class, 'store']);
-Route::put('/sit_revista/{id}', [SitRevistaController::class, 'update']);
-Route::delete('/sit_revista/{id}', [SitRevistaController::class, 'destroy']);
