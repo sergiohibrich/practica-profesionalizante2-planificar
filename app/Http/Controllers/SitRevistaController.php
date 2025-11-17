@@ -30,8 +30,11 @@ class SitRevistaController extends Controller
     {
         DB::table('sit_revista')->insert([
             'revista' => $request['revista'],
-        ]);
-        return response()->json(['message' => 'revista fue creada con éxito ']);
+            'created_at' => now(),
+            'updated_at' => now(),
+
+    ]);
+    return response()->json(['mensaje'=>'Situacion de revista agregada correctamente']);
     }
 
     /**
@@ -39,7 +42,7 @@ class SitRevistaController extends Controller
      */
     public function show(string $id)
     {
-        return DB::table('sit_revista')->where('id',"=", $id)->get();
+       return DB::table('sit_revista')->where('id','=',$id)->get();
     }
 
     /**
@@ -55,10 +58,11 @@ class SitRevistaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        DB::table('sit_revista')->where('id',"=", $id)->update([
-            'revista' => $request['revista'],
-        ]);
-        return response()->json(['message' => 'revista actualizada con éxito']);
+        return DB::table('sit_revista')->where('id','=', $id)->update([
+                'revista' => $request['revista'],
+                'updated_at' => now()
+    ]);
+    return response()->json(['mensaje' => 'Situacion de revista actualiza correctamente']);
     }
 
     /**
@@ -66,8 +70,8 @@ class SitRevistaController extends Controller
      */
     public function destroy(string $id)
     {
-        DB::table('sit_revista')->where('id',"=", $id)->delete();
-        return response()->json(['message' => 'revista eliminada con exito']);
+        DB::table('sit_revista')->where('id', '=', $id)->delete();
+
+    return response()->json(['mensaje' => 'Situacion de revista eliminada correctamente']);
     }
-    
 }
