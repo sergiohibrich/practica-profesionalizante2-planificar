@@ -20,3 +20,11 @@ Route::get('/cursos/{id}', [CursosController::class,'show']);
 Route::post('/cursos', [CursosController::class,'store']);
 Route::put('/cursos/{id}', [CursosController::class,'update']);
 Route::delete('/cursos/{id}', [CursosController::class,'destroy']);
+
+use App\Http\Controllers\SitRevistaController;
+
+Route::get('/sit_revista', [SitRevistaController::class, 'index']);
+Route::get('/sit_revista/{id}', [SitRevistaController::class, 'show']);
+Route::post('/sit_revista', [SitRevistaController::class, 'store']);
+Route::put('/sit_revista/{id}', [SitRevistaController::class, 'update']);
+Route::delete('/sit_revista/{id}', [SitRevistaController::class, 'destroy']);
