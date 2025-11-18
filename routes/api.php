@@ -21,6 +21,9 @@ Route::delete('persona-cargo-cursado/{id}', [PersonaCargoCursadoController::clas
 Route::post('persona-cargo-cursado', [PersonaCargoCursadoController::class, 'store']);
 use App\Http\Controllers\PersonasController;
 use App\Http\Controllers\CursosController;
+# use App\Http\Controllers\PersonasController;
+# use App\Http\Controllers\CursosController;
+use App\Http\Controllers\PlanificacionAnualController;
 
 
 Route::get('/user', function (Request $request) {
@@ -76,3 +79,11 @@ Route::get('/cursos/{id}', [CursosController::class,'show']);
 Route::post('/cursos', [CursosController::class,'store']);
 Route::put('/cursos/{id}', [CursosController::class,'update']);
 Route::delete('/cursos/{id}', [CursosController::class,'destroy']);
+
+
+// Rutas para el controlador Planificacion Anual
+Route::get('/planificacion-anual', [PlanificacionAnualController::class, 'index']);
+Route::post('/planificacion-anual', [PlanificacionAnualController::class, 'store']);
+Route::get('/planificacion-anual/{id}', [PlanificacionAnualController::class, 'show']);
+Route::put('/planificacion-anual/{id}', [PlanificacionAnualController::class, 'update']);
+Route::delete('/planificacion-anual/{id}', [PlanificacionAnualController::class, 'destroy']);
