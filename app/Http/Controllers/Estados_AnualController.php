@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class Estados_anualController extends Controller
+class Estados_AnualController extends Controller
 {
     // Mostrar todos los registros
     public function index()
