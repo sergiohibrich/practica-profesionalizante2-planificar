@@ -94,6 +94,13 @@ Route::get('/persona_cargos/{id}', [PersonaCargosController::class, 'show']);
 Route::put('/persona_cargos/{id}', [PersonaCargosController::class, 'update']);
 Route::delete('/persona_cargos/{id}', [PersonaCargosController::class, 'destroy']);
 Route::post('/persona_cargos', [PersonaCargosController::class, 'store']);
+use App\Http\Controllers\CargosController;
+
+Route::get('/cargos', [CargosController::class, 'index']);
+Route::get('/cargos/{id}', [CargosController::class, 'show']);
+Route::post('/cargos', [CargosController::class, 'store']);
+Route::put('/cargos/{id}', [CargosController::class, 'update']);
+Route::delete('/cargos/{id}', [CargosController::class, 'destroy']);
 use App\Http\Controllers\SitRevistaController;
 
 Route::get('/sit_revista', [SitRevistaController::class, 'index']);

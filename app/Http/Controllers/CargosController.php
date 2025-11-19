@@ -55,11 +55,17 @@ class CargosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        DB::table('cargos')->where('id','=', $id)->update([
-                    'cargo' => $request['cargo'], 
-                ]);
-    }
+        $updated = DB::table('cargos')->where('id', $id)->update([
+            'cargo' => $request['cargo'],
+            'updated_at' => now(),
+        ]);
 
+        if ($updated) {
+            return response()->json(['message' => 'Cargo actualizado correctamente'], 200);
+        } else {
+            return response()->json(['message' => 'No se encontró el cargo o no se realizan cambios'], 404);
+        }
+    }
     /**
      * Remove the specified resource from storage.
      */
