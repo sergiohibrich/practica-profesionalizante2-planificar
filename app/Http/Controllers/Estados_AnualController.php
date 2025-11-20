@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class Estados_anualController extends Controller
+class Estados_AnualController extends Controller
 {
     // Mostrar todos los registros
     public function index()
@@ -42,7 +42,7 @@ class Estados_anualController extends Controller
     public function update(Request $request, $id)
     {
         $updateData = [];
-        
+
         if ($request->has('estado')) {
             $updateData['estado'] = $request->estado;
         }
@@ -52,7 +52,7 @@ class Estados_anualController extends Controller
         if ($request->has('planificacion_anual_id')) {
             $updateData['planificacion_anual_id'] = $request->planificacion_anual_id;
         }
-        
+
         $updateData['updated_at'] = now();
 
         DB::table('estados_anual')
@@ -71,7 +71,7 @@ class Estados_anualController extends Controller
     public function destroy($id)
     {
         DB::table('estados_anual')->where('id', $id)->delete();
-        
+
         return [
             'mensaje' => 'datos eliminado correctamente'
         ];
