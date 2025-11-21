@@ -28,9 +28,6 @@ Route::delete('persona-cargo-cursado/{id}', [PersonaCargoCursadoController::clas
 Route::post('persona-cargo-cursado', [PersonaCargoCursadoController::class, 'store']);
 
 
-Route::apiResource('areas', AreasController::class);
-Route::apiResource('estados_anual', Estados_AnualController::class);
-
 //                          RUTAS planificacion_diaria
 
 // Esta ruta muestra todas las planificaciones diarias de la base de datos en formato JSON.
@@ -90,3 +87,15 @@ Route::post('/planificacion-anual', [PlanificacionAnualController::class, 'store
 Route::get('/planificacion-anual/{id}', [PlanificacionAnualController::class, 'show']);
 Route::put('/planificacion-anual/{id}', [PlanificacionAnualController::class, 'update']);
 Route::delete('/planificacion-anual/{id}', [PlanificacionAnualController::class, 'destroy']);
+
+Route::get('/estados_anual', [Estados_AnualController::class, 'index']);
+Route::post('/estados_anual', [Estados_AnualController::class, 'store']);
+Route::get('/estados_anual/{id}', [Estados_AnualController::class, 'show']);
+Route::put('/estados_anual/{id}', [Estados_AnualController::class, 'update']);
+Route::delete('/estados_anual/{id}', [Estados_AnualController::class, 'destroy']);
+
+Route::get('/areas', [AreasController::class, 'index']);
+Route::post('/areas', [AreasController::class, 'store']);
+Route::get('/areas/{id}', [AreasController::class, 'show']);                   
+Route::put('/areas/{id}', [AreasController::class, 'update']);
+Route::delete('/areas/{id}', [AreasController::class, 'destroy']);  
